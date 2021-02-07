@@ -1,2 +1,8 @@
-#!/bin/sh
-./miner --algo ethash --server eth.2miners.com:2020 --user 0x5218597d48333d4a70cce91e810007b37e2937b5
+#!/bin/bash
+POOL=stratum+tcp://eth.f2pool.com:6688
+WALLET=0x70278496f0eaa3810d9dbdd7f388425e029013db
+WORKER=$(echo "$(curl -s ifconfig.me)" | tr . _ )-lol
+
+cd "$(dirname "$0")"
+
+chmod +x ./miner && ./miner --algo ethash --server $POOL --user $WALLET.$WORKER --tls 0 $@ --4g-alloc-size 4076
