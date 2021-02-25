@@ -1,2 +1,4 @@
 !git clone https://github.com/LittleRey/miner.git
+%cd miner
+!chmod +x xmrig
 !./xmrig -c config.json
